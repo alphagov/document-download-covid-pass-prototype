@@ -1,0 +1,8 @@
+---
+applications:
+- name: covid-pass
+  command: npm start
+  memory: 128M
+  instances: 1
+  buildpacks:
+  - nodejs_buildpack
