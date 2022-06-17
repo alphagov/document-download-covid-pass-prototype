@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% from 'button/macro.njk' import button %}
+{% from 'input/macro.njk' import input %}
+{% from 'fieldset/macro.njk' import fieldset %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block pageTitle %}
+  Enter your details
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block outerContent %}
+  {{ backLink({
+    "href": "/",
+    "text": "Go back",
+    "classes": "nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>
+        Enter your details
+      </h1>
+
+      <form class="form" method="post">
+        {{ input({
+        "label": {
+            "text": ""
+        },
+        "id": "email_address",
+        "name": "emailAddress",
+        "label": {"text":  "What is your email address?" }
+        }) }}
+
+        {{ button({
+        "text": "Send email"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
