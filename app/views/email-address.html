@@ -14,7 +14,7 @@
 
 {% block outerContent %}
   {{ backLink({
-    "href": "/",
+    "href": "/consent",
     "text": "Go back",
     "classes": "nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0"
   }) }}
@@ -24,17 +24,19 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <h1>
-        Enter your details
+
       </h1>
 
       <form class="form" method="post">
         {{ input({
-        "label": {
-            "text": ""
-        },
-        "id": "email_address",
-        "name": "emailAddress",
-        "label": {"text":  "What is your email address?" }
+          "label": {
+              "text": "Enter your email address",
+              "isPageHeading": true,
+              "classes": "nhsuk-label--l"
+          },
+          "id": "email_address",
+          "name": "emailAddress",
+          "hint": {"text": "We’ll use this to send you a link to download your COVID Pass."}
         }) }}
 
         {{ button({

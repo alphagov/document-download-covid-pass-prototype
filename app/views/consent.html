@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+{% from 'button/macro.njk' import button %}
+{% from 'input/macro.njk' import input %}
+{% from 'fieldset/macro.njk' import fieldset %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block pageTitle %}
+  Enter your details
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block outerContent %}
+  {{ backLink({
+    "href": "/",
+    "text": "Go back",
+    "classes": "nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        Agree to share your NHS login information
+      </h1>
+      <p class="nhsuk-body">
+      To continue, you need to agree to share your NHS login information with NHS COVID Pass. This service is provided by the Department of Health and Social Care.
+      </p>
+      <p class="nhsuk-body">
+      NHS COVID Pass will use your:
+      </p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>
+      NHS number
+      </li><li>
+      date of birth
+    </li><li>
+      last name</li><li>
+
+      email address
+    </li><li>
+      mobile phone number
+    </li><li>
+      first names
+    </li><li>
+      GP surgery’s name and address
+    </li>
+      </ul>
+
+      {{ button({
+        "text": "I agree",
+        "href": "email-address"
+      }) }}
+
+      {% from 'details/macro.njk' import details %}
+
+{{ details({
+  "text": "I do not agree to share this information",
+  "HTML": "
+    <p class='nhs-uk-body'>
+      This is just a prototype. It cannot access your NHS login information.
+    </p>
+    <p class='nhs-uk-body'>
+      You can select ‘I agree’ without putting any of your personal information at risk.
+    </p>
+  "
+}) }}
+
+    </div>
+  </div>
+{% endblock %}
