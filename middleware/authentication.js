@@ -20,6 +20,10 @@ module.exports = function (req, res, next) { /* eslint-disable-line consistent-r
   const username = process.env.PROTOTYPE_USERNAME;
   const password = process.env.PROTOTYPE_PASSWORD;
 
+  // Disable auth
+  next();
+  return;
+
   if (env === 'production' || env === 'staging') {
     if (!username || !password) {
       return res.send('<p>Username or password not set in environment variables.</p>');
