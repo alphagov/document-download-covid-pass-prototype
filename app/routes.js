@@ -12,22 +12,26 @@ const axios = require('axios');
 // Add your routes here - above the module.exports line
 
 router.post('/email-address', (req, res) => {
+  req.session.data['email-address'] = req.body.emailAddress
+  res.redirect('/consent');
+});
+
+router.post('/consent', (req, res) => {
     notifyClient
         .sendEmail(
           templateId='77168d68-46a1-44fb-90ea-c52173122c5d',
-          emailAddress=req.body.emailAddress,
+          emailAddress=req.session.data['email-address'],
           {reference: 'covid pass email'}
         )
-        .then(response => console.log(response))
+        .then(response => console.log('HTTP', response.status, response.config.url))
         .catch(err => console.error(err))
 
     axios
       .post('https://documents.cloudapps.digital/allow-email', {
-        'email-address': req.body.emailAddress
+        'email-address': req.session.data['email-address']
       })
-      .then(res => {
-        console.log(`statusCode: ${res.status}`);
-        console.log(res);
+      .then(response => {
+        console.log('HTTP', response.status, response.config.url);
       })
       .catch(error => {
         console.error(error);

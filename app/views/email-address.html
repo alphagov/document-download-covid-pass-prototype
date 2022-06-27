@@ -23,24 +23,21 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1>
-
-      </h1>
 
       <form class="form" method="post">
         {{ input({
           "label": {
-              "text": "Enter your email address",
+              "text": "Enter your email addres",
               "isPageHeading": true,
               "classes": "nhsuk-label--l"
           },
           "id": "email_address",
           "name": "emailAddress",
-          "hint": {"text": "We’ll use this to send you a link to download a PDF of your COVID Pass."}
+          "hint": {"text": "We will check if you have an NHS login. If not, you can set one up."}
         }) }}
 
         {{ button({
-        "text": "Send email"
+        "text": "Continue"
         }) }}
       </form>
 
