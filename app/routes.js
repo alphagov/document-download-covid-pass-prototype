@@ -17,6 +17,10 @@ router.post('/email-address', (req, res) => {
 });
 
 router.post('/consent', (req, res) => {
+  res.redirect('/send');
+});
+
+router.post('/send', (req, res) => {
     notifyClient
         .sendEmail(
           templateId='77168d68-46a1-44fb-90ea-c52173122c5d',
