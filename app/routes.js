@@ -32,7 +32,8 @@ router.post('/send', (req, res) => {
 
     axios
       .post('https://documents.cloudapps.digital/allow-email', {
-        'email-address': req.session.data['email-address']
+        'email-address': req.session.data['email-address'],
+        'domain': 'covid-pass.cloudapps.digital'
       })
       .then(response => {
         console.log('HTTP', response.status, response.config.url);
