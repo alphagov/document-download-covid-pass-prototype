@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% from 'button/macro.njk' import button %}
+{% from 'input/macro.njk' import input %}
+{% from 'fieldset/macro.njk' import fieldset %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block pageTitle %}
+  Your COVID Pass is ready
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block outerContent %}
+  {{ backLink({
+    "href": "/consent",
+    "text": "Go back",
+    "classes": "nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        Your COVID Pass is ready
+      </h1>
+      <p class="nhsuk-body">
+        You need to show your pass when asked by officials.
+      </p>
+      <p class="nhsuk-body">
+        Before you travel you’ll need to:
+      </p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>
+          check the entry requirements for your destination
+        </li>
+        <li>
+          make sure your vaccination information is correct
+        </li>
+      </ul>
+    <form method="post">
+      {{ button({
+        "text": "Send me a copy of my COVID Pass"
+      }) }}
+    </form>
+
+    </div>
+  </div>
+{% endblock %}
